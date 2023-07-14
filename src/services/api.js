@@ -5,6 +5,11 @@ import router from '../router/index.js';
 
 const api = axios.create({
   baseURL: 'https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app', // Insira a URL base do seu backend aqui
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    },
 });
 
 export const registerUser = async (userData) => {
