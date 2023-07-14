@@ -98,9 +98,7 @@ export default {
                 // motivo: falta cabeçalho 'Access-Control-Allow-Origin' no CORS)
                 {
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*',
-                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                        'Access-Control-Allow-Origin': '*'
                     },
                 }
                 );
