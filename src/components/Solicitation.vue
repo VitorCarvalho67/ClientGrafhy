@@ -28,7 +28,7 @@
   
       async function createSolicitation() {
         try {
-          const response = await axios.post(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/`, {
+          const response = await axios.post(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/`, {
             id_users1: id_users1.value,
             id_users2: id_users2.value
           })

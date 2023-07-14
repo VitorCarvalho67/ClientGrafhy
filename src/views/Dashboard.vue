@@ -94,13 +94,16 @@ export default {
         },
         async fetchUserIdByEmail(email) {
             try {
-                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/email/${email}`, {
+                const response = await axios.get(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/email/${email}`, 
+                // motivo: falta cabeçalho 'Access-Control-Allow-Origin' no CORS)
+                {
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*',
                         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
                     },
-                });
+                }
+                );
                 return response.data.id_users;
             } catch (err) {
                 console.error('Erro ao buscar usuário', err);
@@ -112,7 +115,7 @@ export default {
         },
         async fetchSolicitations() {
             try {
-                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/${this.user}`, {
+                const response = await axios.get(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/${this.user}`, {
                         headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*',
@@ -120,7 +123,7 @@ export default {
                     },});
                 const solicitations = response.data;
                 for (let solicitation of solicitations) {
-                    const userResponse = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${solicitation.id_users1}`,{
+                    const userResponse = await axios.get(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${solicitation.id_users1}`,{
                         headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*',
@@ -139,7 +142,7 @@ export default {
             const otherUserId = await this.fetchUserIdByEmail(this.email);
             if (this.user && otherUserId) {
                 try {
-                    const response = await axios.post(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/`, {
+                    const response = await axios.post(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/`, {
                         id_users1: this.user,
                         id_users2: otherUserId
                     },
@@ -167,7 +170,7 @@ export default {
         async respondToSolicitation(user1, resposta) {
             console.log(user1, this.user, resposta)
             try {
-                const solicitationResponse = await axios.post(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/accept`, {
+                const solicitationResponse = await axios.post(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/accept`, {
                     id_users1: user1,
                     id_users2: this.user,
                     response: resposta
@@ -187,7 +190,7 @@ export default {
         },
         async fetchContacts() {
             try {
-                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/contacts/${this.user}`,{
+                const response = await axios.get(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/contacts/${this.user}`,{
                     headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*',
@@ -196,7 +199,7 @@ export default {
                 });
                 const contacts = response.data;
                 for (let contact of contacts) {
-                    const userResponse = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${contact.id_users1}`,{
+                    const userResponse = await axios.get(`https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${contact.id_users1}`,{
                         headers: {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': '*',
