@@ -94,7 +94,13 @@ export default {
         },
         async fetchUserIdByEmail(email) {
             try {
-                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/email/${email}`);
+                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/email/${email}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+                });
                 return response.data.id_users;
             } catch (err) {
                 console.error('Erro ao buscar usuário', err);
@@ -106,10 +112,21 @@ export default {
         },
         async fetchSolicitations() {
             try {
-                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/${this.user}`);
+                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/${this.user}`, {
+                        headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },});
                 const solicitations = response.data;
                 for (let solicitation of solicitations) {
-                    const userResponse = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${solicitation.id_users1}`);
+                    const userResponse = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${solicitation.id_users1}`,{
+                        headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+                    } );
                     solicitation.name_users = userResponse.data.name_users;
                 }
                 this.solicitations = solicitations;
@@ -125,6 +142,13 @@ export default {
                     const response = await axios.post(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/solicitation/`, {
                         id_users1: this.user,
                         id_users2: otherUserId
+                    },
+                    {
+                        headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
                     });
                     console.log('Solicitação enviada com sucesso', response.data);
                     alert('Solicitação enviada com sucesso!');  // Adicionar um alerta
@@ -139,7 +163,7 @@ export default {
                 alert('Usuário não encontrado. Verifique o email digitado.');  // Adicionar um alerta para o caso de usuário não encontrado
             }
         },
-        
+
         async respondToSolicitation(user1, resposta) {
             console.log(user1, this.user, resposta)
             try {
@@ -147,6 +171,13 @@ export default {
                     id_users1: user1,
                     id_users2: this.user,
                     response: resposta
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
                 });
                 console.log('Resposta à solicitação enviada com sucesso', solicitationResponse.data);
                 this.fetchSolicitations();  // atualizar as solicitações após responder
@@ -156,10 +187,22 @@ export default {
         },
         async fetchContacts() {
             try {
-                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/contacts/${this.user}`);
+                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/contacts/${this.user}`,{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+                });
                 const contacts = response.data;
                 for (let contact of contacts) {
-                    const userResponse = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${contact.id_users1}`);
+                    const userResponse = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/id/${contact.id_users1}`,{
+                        headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+                    });
                     contact.name_users = userResponse.data.name_users;
                 }
                 this.contacts = contacts;
