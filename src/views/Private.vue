@@ -64,7 +64,7 @@ export default defineComponent({
 
         async sendMessage() {
             try {
-                const response = await axios.post(`https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/message_user/`, {
+                const response = await axios.post(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/message_user/`, {
                     id_users1: this.userId,
                     id_users2: this.contactId,
                     message: this.newMessage,
@@ -93,7 +93,7 @@ export default defineComponent({
 
         async fetchMessages() {
             try {
-                const response = await axios.get(`https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/message_user/${this.userId}/${this.contactId}`);
+                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/message_user/${this.userId}/${this.contactId}`);
                 let uniqueMessages = Array.from(new Set(response.data.map(JSON.stringify))).map(JSON.parse);
 
                 // Classificar mensagens por data de envio
@@ -108,7 +108,7 @@ export default defineComponent({
 
         async fetchLoggedInUserId() {
             try {
-                const response = await axios.get(`https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/users/email/${this.userEmail}`);
+                const response = await axios.get(`https://2976-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/users/email/${this.userEmail}`);
                 this.userId = response.data.id_users;
                 return this.userId;
             } catch (err) {
