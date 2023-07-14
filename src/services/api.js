@@ -4,10 +4,7 @@ import router from '../router/index.js';
 // quero usar um redirecionamento para a página dashboard após o login
 
 const api = axios.create({
-  baseURL: 'https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app', // Insira a URL base do seu backend aqui
-  headers: {
-    'Access-Control-Allow-Origin': '*'
-    },
+  baseURL: 'https://gafhypy.favela.network' // Insira a URL base do seu backend aqui
 });
 
 export const registerUser = async (userData) => {

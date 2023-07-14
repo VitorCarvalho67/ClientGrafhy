@@ -34,7 +34,7 @@
   methods: {
     async getComunicados() {
       try {
-        const response = await axios.get('https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/comunicado/');
+        const response = await axios.get('https://gafhypy.favela.network/comunicado/');
         this.comunicados = response.data;
       } catch (error) {
         console.error('Erro ao obter comunicados:', error);

@@ -23,7 +23,7 @@
   
       onMounted(async () => {
         try {
-          const response = await axios.get('https://0156-2804-3bb4-13f-8900-5d17-fe3a-3de8-fdf6.ngrok-free.app/menssages/group/3');
+          const response = await axios.get('https://gafhypy.favela.network/menssages/group/3');
           messages.value = response.data.reverse(); // Reverse the order of the messages
           nextTick(() => {
             containerRef.value.scrollTop = contentRef.value.offsetHeight;
