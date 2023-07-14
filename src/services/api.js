@@ -4,7 +4,7 @@ import router from '../router/index.js';
 // quero usar um redirecionamento para a página dashboard após o login
 
 const api = axios.create({
-  baseURL: 'http:/7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app', // Insira a URL base do seu backend aqui
+  baseURL: 'https:/7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app', // Insira a URL base do seu backend aqui
 });
 
 export const registerUser = async (userData) => {
