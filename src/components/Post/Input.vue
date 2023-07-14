@@ -42,7 +42,7 @@ export default defineComponent({
         };
     },
     //     curl --request POST \
-    //   --url http://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/comunicado/ \
+    //   --url https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/comunicado/ \
     //   --header 'Content-Type: multipart/form-data' \
     //   --form message_comunicado=dwadwdadawd \
     //   --form title_comunicado=awdawdawdawd \
@@ -65,7 +65,7 @@ export default defineComponent({
             }
 
             try {
-                const response = await axios.post('http://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/comunicado/', formData, {
+                const response = await axios.post('https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/comunicado/', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }

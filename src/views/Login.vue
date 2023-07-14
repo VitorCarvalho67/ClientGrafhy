@@ -33,7 +33,7 @@
     methods: {
       login(event) {
         event.preventDefault()
-        axios.post('http://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/login/', {
+        axios.post('https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/login/', {
           email_users: this.email,
           password_users: this.password
         })

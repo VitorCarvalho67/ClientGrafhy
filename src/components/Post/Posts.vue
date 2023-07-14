@@ -34,7 +34,7 @@
   methods: {
     async getComunicados() {
       try {
-        const response = await axios.get('http://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/comunicado/');
+        const response = await axios.get('https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/comunicado/');
         this.comunicados = response.data;
       } catch (error) {
         console.error('Erro ao obter comunicados:', error);

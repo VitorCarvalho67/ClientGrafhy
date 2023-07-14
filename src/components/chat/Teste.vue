@@ -51,7 +51,7 @@
   
       async function fetchMessages() {
         try {
-          const response = await axios.get('http://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/menssages/group/2');
+          const response = await axios.get('https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/menssages/group/2');
           messages.value = response.data.reverse(); // Reverse the order of the messages
         } catch (error) {
           console.error(error);
@@ -68,7 +68,7 @@
           };
           console.log("Request body:", requestBody);
   
-          const response = await axios.post('http://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/menssages/', requestBody);
+          const response = await axios.post('https://7ef5-2804-3bb4-13f-8900-452b-c950-55a9-4c60.ngrok-free.app/menssages/', requestBody);
           console.log("Response:", response);
           messageInput.value = '';  // Clear the message input field.
           await fetchMessages(); // Fetch the updated messages
